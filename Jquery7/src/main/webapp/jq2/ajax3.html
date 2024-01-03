@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+	  	  
+	  $.ajax({
+// 		  url : "xmlData.jsp",
+		  url : "xmlData2.xml",
+		  dataType : "xml",
+		  success : function(data){
+			  alert(" 확인! ");
+			  console.log(data);
+			  //$('body').append(data);
+			  $(data).find('person').each(function(){
+				   var name = $(this).find('name').text();
+				   var age = $(this).find('age').text();
+				   var addr = $(this).find('addr').text();
+				   
+				   //alert("name : "+name);
+				   $('body').append(name+"/"+age+"/"+addr+"<br>");			  
+			  });
+		  }
+	  });
+	  
+	  
+	  
+	  
+	  // JTBC RSS 뉴스 정보를 가져오기
+	  $.ajax({
+		  url : "https://fs.jtbc.co.kr/RSS/sports.xml",
+		  success : function(data){
+			  alert(" JTBC 성공! ");
+			  $(data).find('channel').each(function(){
+				   var tmpDate = $(this).find('pubDate').html();
+// 				   var tmpDate = $(this).find('pubDate').text();
+				   
+				   $(".news").append("<h2>"+tmpDate+" 신문기사 목록</h2>");
+			  });
+			  
+			  $(data).find('item').each(function(){
+				  var tmpTitle = $(this).find('title').text();
+				  var tmpLink = $(this).find('link').text();
+
+				  //$('.news').append(tmpTitle +"<hr>");
+				  $('.news').append("<img src='https://photo.jtbc.co.kr/news/2023/11/09/202311092113132269_LC.jpg.tn350.jpg'>");
+				  $('.news').append("<a href='"+tmpLink+"'>"+tmpTitle +"</a><hr>");
+			  });
+			  
+		  }		  
+	  });	 	  
+	  
+	  
+	  
+	  
+	  
+  });
+</script>
+</head>
+<body>
+	<h1>ajax3.html</h1>
+	
+	<h2>XML(eXtensible Markup Language) : 확장 가능한 마크업 언어 </h2>
+	<!--  
+	    - HTML과 유사함 (태그로 정보/데이터를 저장)
+	    - 다양한 형태의 정보를 저장가능(<->HTML)
+	    - 모든 플랫폼에서 사용가능(데이터 표준 2000년 초반)
+	    - 태그사용으로 인한 데이터 증가 
+	-->
+	<hr>
+	 <div class="news"></div>
+	 
+	<hr>
+	
+	
+	
+</body>
+</html>
