@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>test3.html</h1>
+
+    <h2> 제어문 </h2>
+    <p> 
+        프로그램의 흐름을 제어하는 문장
+        - 조건문 : 특정 조건에 따른 실행 (if/if-else/if-else if)
+        - 선택문 :          "           (switch-case)
+        - 반복문 : 특정 조건에 따라 반복 실행 (for/while/do-while)
+    </p>
+
+    <hr>
+    <h2> 조건문 if문 / if-else문 / if-else if문 </h2>
+    <script>
+        // if(조건문){
+        //     조건문이 참일때 실행하는 코드;    
+        // }
+
+        // if(조건문)
+        //       실행문;
+        // * if문은 실행하는 코드가 1줄일때 중괄호 생략가능
+
+        var number = 30;
+        // var number = prompt("숫자를 입력하세요!");
+
+        // 변수 number값이 50보다 클때 "50보다 큰값이 입력!!"
+        if( number > 50 ){
+            document.write("50보다 큰값이 입력!!");
+        }
+
+        // Boolean(값) => t/f 리턴;
+        // => 0,null,undefined,""(공백문자) => false
+        // => 그외 모든 데이터 => true
+
+        if(0){
+            document.write("@@@@0@@@@");
+        }
+        if(1){
+            document.write("@@@@1@@@@");
+        }
+        if("아이티윌"){
+            document.write("@@@@아이티윌@@@@");
+        }
+
+        // number 변수의 값이 양수 일때만 "양수!" 메세지 출력!
+        if(number > 0){
+            document.write(" 양수! ");
+        }
+
+        // if-else문
+        // if(조건문){
+        //     조건문이 참일때 실행코드
+        // }else{
+        //     조건문이 참이 아닐때 실행코드
+        //     (그외 나머지)
+        // }
+
+        // 변수 number값이 홀수/짝수 구분해보기 
+        if( number%2 == 0 ){
+            document.write("짝수<br>");
+        }else{ // number%2 != 0
+            document.write("홀수<br>");
+        }
+
+        if( number%2 == 0 ){
+            document.write("짝수<br>");
+        }
+        if(number%2 != 0){ 
+            document.write("홀수<br>");
+        }
+        /////////////////////////////////////////
+
+        // var check = confirm("퇴실 찍으셨나요? yes or no?");
+
+        // //document.write(tmp);
+
+        // // yes -> 정상 출석!
+        // if(check){
+        //     document.write("정상 출석!<br>");
+        // }
+        // // no -> 퇴실 버튼을 눌러주세요!
+        // else{
+        //     document.write("퇴실 버튼을 눌러주세요!<br>");
+        // }
+
+        // if-else if문
+        // if(조건문1){
+        //     조건문1 참일때 실행문
+        // }else if(조건문2){
+        //     조건문2 참일때 실행문
+        // }else if(조건문3){
+        //     조건문3 참일때 실행문
+        // }
+        //   .....
+        // else{
+        //     모든 조건을 제외한 경우 실행문
+        // } 
+
+        // 사계절  
+        // 봄(3~5) 여름(6~8) 가을(9~11) 겨울(12~2)
+        var month = 15;
+        // 변수 month의 값에따라서 계절정보 출력
+        //  "00월은  oo 입니다."
+
+        // 3~5 봄
+        if(3 <= month && month <=5 ){
+            document.write(month+"월은 봄 입니다.");
+        }else if(6 <= month && month <=8){
+            document.write(month+"월은 여름 입니다.");
+        }
+        else if(9 <= month && month <=11){
+            document.write(month+"월은 가을 입니다.");
+        }
+        // else if(1<= month && month <=2 || month == 12){
+        else if(1== month || month ==2 || month == 12){
+            document.write(month+"월은 겨울 입니다.");
+        }
+        else{
+            document.write("1~12월까지 정상적인 데이터를 입력하세요! ");
+        }
+
+        // 중첩 if문
+        // if(조건문){
+        //     참일때 실행하는 코드 => if문 가능? O
+        //     if(조건문2){
+        //         참일때 실행하는 코드 
+        //     }
+        // }
+        // if(조건문 && 조건문2){
+        //       참일때 실행하는 코드           
+        // }
+        
+        document.write("<hr>");
+        var DBID = "itwill";
+        var DBPW = "1234";
+            // 로그인 만들기
+            // 1. ID/PW 입력
+            var inputID = prompt(" 아이디를 입력하세요. ");
+            var inputPW = prompt(" 비밀번호를 입력하세요.");
+            // 2. ID(입력) - ID(기존)가 같은지 비교
+            if(inputID == DBID){
+                // 3-1. 같은경우 (회원)
+                //   4. PW(입력) - PW(기존)가 같은지 비교
+                if(inputPW == DBPW){
+                    //   5-1. (아이디같음) 비밀번호 같음
+                    //     6. 본인(로그인 성공)  
+                    alert(" 로그인 성공! ");
+                }else{
+                    //   5-2. (아이디같음) 비밀번호 다름
+                    //     6.  본인X(로그인 실패-비밀번호 오류~) 
+                    alert(" 로그인 실패(비밀번호 오류)");
+                }              
+            }else{ // 3-2. 다른경우 (비회원)
+                alert(" 회원정보가 없습니다! (비회원)");
+                alert(" 아이디 혹은 비밀번호가 잘못되었습니다. ");
+
+            }
+           
+
+           if(inputID == DBID && inputPW == DBPW){
+
+           }else{
+
+           }
+
+    </script>
+
+     <hr>
+
+     <h2> switch-case문 : 특정 값을 만족할때 실행하는 코드 </h2>
+     <script>
+        // switch(변수/정수,문자){
+        //     case 값1:
+        //         실행문1;
+        //         [break;]
+        //     case 값2:
+        //         실행문2;
+        //         [break;]
+        //     case 값3:
+        //         실행문3;
+        //         [break;]
+        //     default:
+        //         실행문;        
+        // }
+
+        // switch-case 문
+        // 1) 처음~끝까지 실행하면 종료
+        // 2) default 구문을 실행하면 종료
+        // 3) case를 실행해서 break문을 실행하면 종료
+        //      (* case를 실행해서 break문이 없으면 
+        //        다음 break문을 실행할때까지 모든코드 실행)   
+        
+        var num = 8;
+        switch (num) {
+            case 10:
+                alert(" 10! ");
+                break;
+            case 9:
+                alert(" 9! ");
+                break;
+            case 8:
+                alert(" 8! ");
+                //break;
+            case 7:
+                alert(" 7! ");
+                break; 
+            case 6:
+                alert(" 6! ");
+                break;   
+            default:
+                alert(" 지원하지 않는 숫자 입니다 ");
+        }
+
+
+        //Q. 학점 출력 프로그램 작성
+        //   학생의 점수에 따른 학점 출력 (학생의 점수는 항상 0~100숫자)
+        //   100 - A
+        //   90~99 - A
+        //   80~89 - B
+        //   70~79 - C
+        //   60~69 - D
+        //   0~59  - F
+        var score = 99;
+        // 1) if-else if
+        if(0<= score && score <= 100){
+            if(90 <= score && score <=100){
+                alert("A 학점");
+            }else if(80 <= score && score <=89){
+                alert("B 학점");
+            }else if(70 <= score && score <=79){
+                alert("C 학점");
+            }else if(60 <= score && score <=69){
+                alert("D 학점");
+            }else{
+                alert("F 학점(0~59점)");
+            }
+        }
+       
+        // 2) switch-case
+        //   100 - A
+        //   90~99 - A
+        //   80~89 - B
+        //   70~79 - C
+        //   60~69 - D
+        //   0~59  - F
+
+        // 각 점수의 10의 자리만 저장
+        var tmpScore = Math.floor(score / 10);
+        var grade = "F";
+
+        switch(tmpScore){
+            case 10:
+            case 9:
+                //alert("A");
+                grade = "A";
+                break;
+            case 8: 
+                //alert("B");
+                grade = "B";
+                break;
+            case 7:
+                //alert("C");
+                grade ="C";
+                break;
+            case 6:   
+                //alert("D");
+                grade = "D";
+                break;
+            default:
+                //alert("F");
+                grade = "F";
+        }
+
+        alert(" 학생 등급 :"+grade);
+//////////////////////////////////////////////////////////////////////
+        
+    // 사용자가 이동하고 싶은 홈페이지 이름을 입력
+    // ex) 네이버,naver,NAVER.... => 네이버 홈페이지로 이동
+    //     구글,google => 구글 홈페이지 이동
+    //     ....
+
+    //  location.href="https://www.naver.com";
+    var site = "naver";
+
+    switch(site){
+        case "네이버":
+        case "NAVER":
+        case "naver":
+            location.href="https://www.naver.com";
+            break;
+    }
+
+
+
+
+     </script>
+
+
+
+
+
+
+
+</body>
+</html>

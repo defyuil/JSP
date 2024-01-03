@@ -1,0 +1,9 @@
+
+12월 18, 2023 12:44:23.69 NEW SESSION
+12월 18, 2023 12:44:23.69 [13256:8632:1218/124423.693:ERROR:extension_registrar.cc(539)] Failed to unregister service worker for extension efaidnbmnnnibpcajpcglclefindmkaj
+12월 18, 2023 12:44:31.64 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+
+12월 26, 2023 15:49:09.30 NEW SESSION
+12월 26, 2023 15:49:09.30 [11464:2836:1226/154909.299:ERROR:interface_endpoint_client.cc(702)] Message 1 rejected by interface blink.mojom.WidgetHost
+12월 26, 2023 15:55:12.94 [11464:2836:1226/155512.949:ERROR:interface_endpoint_client.cc(702)] Message 1 rejected by interface blink.mojom.WidgetHost
+12월 26, 2023 17:32:17.66 [1812:6416:1226/173217.665:ERROR:interface_endpoint_client.cc(702)] Message 1 rejected by interface blink.mojom.WidgetHost
