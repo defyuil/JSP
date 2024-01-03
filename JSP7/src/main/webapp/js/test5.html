@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>/js/test5.html</h1>
+
+    <!-- 변수 : 데이터 저장해서 사용가능한 메모리 공간 -->
+    <h2> 함수(function) : 실행문 저장해서 사용 </h2>
+
+    <script>
+        // function 함수명(){
+        //     실행코드1;
+        //     실행코드1;
+        //     실행코드1;
+        // }
+        // =>함수명();
+
+        // 익명함수
+        // var tmp = function(){
+        //               실행코드1;
+        //               실행코드1;
+        //               실행코드1;
+        //           }
+        // => 변수명()/참조변수()
+
+        // 함수 선언(정의)
+        function info_ITWILL(){
+            alert("안녕하세요!");
+            alert("아이티윌 입니다!");
+            alert("접수는 왼쪽입니다!");
+        }
+
+        // 함수 사용(호출)
+        //info_ITWILL();
+        //info_ITWILL();    
+        
+        //  sayMyName이름의 함수를 선언
+        // =>본인의 이름을 출력하는 함수
+
+        function sayMyName(){
+            document.write("내이름은 아이티윌 입니다.<br>");
+        }
+        sayMyName();
+
+        // //함수에 정보 전달하기
+        // function 함수명(매개변수1,매개변수2,...,매개변수n){
+        //     코드 실행;
+        // }
+
+        // // 함수 호출
+        // 함수명(값1,값2,...,값n);
+
+        // 매개변수 1개 사용(숫자), 
+        // 1~전달받은 매개변수까지의 합을 출력 함수
+        function exSum(num){
+            // 계산
+            var sum = 0;
+            for(var i=1;i<=num;i++){
+                sum += i;
+            }
+            document.write("합 :"+sum+"<br>");
+        }
+        exSum(10);
+        exSum(55);
+
+        // 숫자 2개를 전달해서, 숫자의 합을 출력 함수 생성
+        function exAdd(num1,num2){
+            document.write(num1+"+"+num2+"="+(num1 + num2)+"<br>");
+        }        
+        exAdd(99,76);
+
+        // 숫자 2개를 전달하여, 둘중에 큰 수를 출력
+        // ex) 10,20 => "20"
+        function exMax(num1,num2){
+            if(num1 > num2){
+                document.write(" 최대값 : "+num1+"<br>");
+            }else{
+                document.write(" 최대값 : "+num2+"<br>");
+            }
+        }
+        exMax(55,20);
+
+        // function 함수명(X,매개변수){
+        //     실행코드;    
+        //     return 값;
+        // }
+
+        // function 
+        //      - 매개변수 O  함수명(n1,n2,...)
+        //        - 리턴 O
+        //        - 리턴 X
+        //      - 매개변수 X  함수명()
+        //        - 리턴 O
+        //        - 리턴 X
+
+        // => 함수(function)는 리턴이 없을경우 위에서 아래로 모든코드 실행
+        //    (대부분 실행(계산)의 결과를 출력)
+        // => 함수(function)는 리턴이 있을경우 위에서 아래로 실행
+        //    (특정 결과를 리턴)
+
+
+        // 매개변수 1개를 사용하여, 전달받은 숫자의
+        //  절대값(양수는 그대로, 음수는 양수로 변경)을 계산후 리턴
+
+        function exABS(n){
+            if(n > 0){
+                // 양수
+               //return n;
+                n = n;     
+            }else{
+                // 음수
+                //return -n;
+               // return n*(-1);
+               // n = n * (-1);
+               n *= -1;
+            }
+            return n; 
+        }
+
+        var tmp = exABS(100);
+        document.write(" 결과 :"+tmp+"<br>");
+        document.write(" 결과 :"+exABS(-200)+"<br>") ;
+
+        // 매개변수 3개 사용, 입력받은 산술연산의 결과를 리턴하는 함수
+        // ex(10,"+",20); 
+        function ex(num1,op,num2){
+            var result = 0;
+            switch(op){
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    result = num1 / num2;
+                    break;
+                case "%":
+                    result = num1 % num2;
+                    break;
+            } 
+
+            return result;
+        }
+
+        // document.write( ex(10,"+",20) );
+        document.write( ex(40,"/",50) );
+
+
+        function test(){
+            document.write("1");
+            return;
+            // -> return문은 실행하는 위치에 따라서
+            //   함수를 강제 종료가능하다.
+            //document.write("2");
+        }
+
+        function test2(){
+            document.write(" 1 ");
+            document.write(" 2 ");
+            document.write(" 3 ");
+            return;
+            document.write(" 4 ");
+            return 100;
+            document.write(" 5 ");
+        }
+
+        test2();
+
+
+        // 전역변수 : 코드 전부에서 사용가능
+        var num = 100;
+        function ex1(){
+           // 지역 변수 : 지역(블럭)에서 사용가능
+           var num = 200;     
+           document.write(num+"<br>");
+        }
+        //var num = 300;  
+        document.write(num+"<br>");
+        ex1();
+        document.write(num+"<br>");
+    </script>
+
+
+    <h2>var 변수(ES6)(p517~)</h2>
+
+    * 전역변수 : 모든 스코프(scope)에서 사용가능한 변수<br>
+      (함수 밖에서 선언후 사용, 함수 안에서 사용할 경우 var 타입을 제거)
+    * 지역변수 : 특정 지역에서만 사용가능한 변수
+
+    <script>
+        var a = 100;
+        function TEST(){
+            // var a = 100;(x -> 지역변수)
+            a = 100; // 전역변수
+        }
+
+        a = 300;
+    </script>
+
+    <h2> 호이스팅 : '끌어올린다'라는 개념으로 사용됨 </h2>
+    <p>
+        자바스크립트는 인터프리터(순차적해석)를 사용해서 코드를 해석한다.<br>
+        함수를 만나면 함수 전체를 스캔한다.<br>
+        만약 함수에 var 선언이 있는경우 별도로 저장<br>
+        
+    </p>
+
+    <script>
+        document.write("<hr>");
+        var x = 10; // 변수 선언 
+        x = 20; // 변수 재할당(재사용)
+
+        var x = 30; // 변수 재선언
+
+        function print(){
+            //var y; // 함수 호이스팅
+            document.write("x :"+x+"<br>");
+            document.write("y :"+y+"<br>");
+            //document.write("z :"+z+"<br>");
+            // -> 에러
+            var y = 20; // 실제코드
+            // y=20; // 함수 호이스팅
+        }
+
+        print();
+    </script>
+
+    <h2>let 타입 : 변수를 선언한 블럭{} 에서만 사용가능하다</h2>    
+    <p>
+        - 변수의 재사용 가능
+        - 변수의 재선언 불가능 / 지역변수 사용가능
+        - 변수 호이스팅 X
+    </p>
+
+    <script>
+        let A = 100;
+        // let A = 200; // 변수의 재선언 불가능!
+
+        function ex2(){
+            //A = 200; // 변수의 재사용O
+            let A = 200; // 변수의 재선언X->지역변수O
+            document.write("A : "+A+"<br>");
+            //document.write("B : "+B+"<br>");
+
+            //let B = 200;
+            // => 호이스팅 X
+        }
+
+        ex2();
+
+    </script>
+    <h2>const 타입 : 변하지 않는값을 저장하는 타입 </h2>
+    <p>
+        - 변수의 재사용 x
+        - 변수의 재선언 x
+        - 변수 호이스팅X
+    </p>
+    <script>
+        const C = 200;
+        // 재사용 X
+        // C = 300;
+        // 재선언 X
+        // const C = 300;
+        document.write("C :  "+C);
+        function ex3(){
+            document.write(D);
+            const D = 100;
+        }
+        ex3();
+    </script>
+
+    <h2>var타입 : 전역변수를 선언해서 사용</h2>
+    <p>
+        - 변수 재사용O
+        - 변수 재선언O -> 가능하면 사용 X
+        - 변수 호이스팅O
+        - 최소한의 사용을 권장함(코드 상단위치)
+    </p>
+
+    <script>
+        // function js(){
+
+        // }
+
+        // js();
+        // 익명함수
+        var tmp = function(){
+
+        }   
+
+        tmp();
+        // 즉시실행 함수
+        (function(){
+            alert("즉시실행함수 실행!");
+        }());
+
+        // 화살표 함수(람다표현식)
+        //const st = "Hello";
+        // const st = function(){
+        //     return "Hello";
+        // }
+
+        // const st = () => { return "Hello"; }
+        // const st = () =>  return "Hello"; 
+         const st = () => "Hello"; 
+
+
+
+
+    </script>
+
+
+
+
+
+    
+</body>
+</html>
